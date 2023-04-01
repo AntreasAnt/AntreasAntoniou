@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+    
+    <title>Contact</title>
+    <link href="https://fonts.cdnfonts.com/css/betterfly" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.cdnfonts.com/css/magical-wonder" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b03c70b58c.js" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript"
+         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("sSuhoUj99sz0fWEhm");
+        })();
+    </script>
+
+
+
+</head>
+<body>
+    <div class="navbar-wallpaper">
+        <header class="navbar">
+        
+            <a href="#" class="logo">Antreas</a>
+            <a  class="hamburger" id="hamburger">
+             <span class="bar" id="bar"></span>
+             <span class="bar" id="bar"></span>
+             <span class="bar" id="bar"></span>
+         </a>
+             <nav class="nav-links" id="nav-links">
+                <ul id="nav-links">
+                     <li><a class="home-link" href="index.html#home">Home</a></li>
+                     <li><a class="home-link" href="index.html#about">About</a></li>
+                     <li><a class="home-link" href="index.html#services">Services</a></li>
+                     <li><a class="home-link" href="index.html#projects">Projects</a></li>
+                     <div class="line-seperator"></div>
+                     <li><a href="contact.html" class="contact">Contact</a></li>
+                 </ul>
+             </nav>
+             
+             
+             
+         </header>
+
+
+
+
+</div>
+    <div class="contact-main">
+            <div class="contact-content">
+                  
+                
+                <div class="form">
+                    <form id="myform">
+                        <div class="form-group">
+                            
+                            <input type="text" class="form-control" id="name" placeholder="Enter Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            
+                            <input type="email" class="form-control" id="email" placeholder="Enter Your E-mail" required>
+                        </div>
+                        <div class="form-group">
+                            
+                            <textarea id="message" class="form-control" placeholder="Enter Your Message" required></textarea>
+                        </div>
+                            <input type="submit" id="btn" value="Share Your FeedBack">
+                        </form>
+                </div>
+                <div class="paragraph">
+                    <div class="paragraph-title">
+                        <h1>Contact </h1>
+                            <h1><span class="contact-line-seperator"></span>Us<span class="contact-line-seperator"></span></h1>
+                    </div> 
+                    <p class="contact-content__text">I am happy to answer all of your questions. Feel free to send me a message at any time. I would love to collaborate with you and make something amazing.Shoot!!</p>
+                </div>
+            </div>
+           
+    </div>
+    <footer>
+       
+        <div class="social-icons">
+            <li><a href="https://www.facebook.com/antreas.antoniou.961/"><i class="fa-brands fa-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/antreas.ntn/"><i class="fa-brands fa-instagram"></i></a></li>
+        </div>
+       
+        <nav class="footer-nav-links">
+            <ul>
+                <li><a class="home-link" href="index.html#home">Home</a></li>
+                <li><a class="home-link" href="index.html#about">About</a></li>
+                <li><a class="home-link" href="index.html#services">Services</a></li>
+                <li><a class="home-link" href="index.html#projects">Projects</a></li>
+                <div class="line-seperator"></div>
+                <li class="footer-contact"><a href="#" class="footer-contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <p class="rights"><i class="fa-regular fa-copyright"></i>2023 Antreas Antoniou | All Rights Reserved</p>
+
+    </footer>
+    <script src="./script.js" defer></script>
+</body>
+
+
+<script>
+    
+    const myform = document.getElementById("myform");
+
+    myform.addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+        var params={
+    name:document.getElementById("name").value,
+    email:document.getElementById("email").value,
+    message:document.getElementById("message").value
+  };
+    const serviceID="service_xckahar";
+    const templateID="template_ao4dlyc";
+
+    emailjs
+        .send(serviceID,templateID,params)
+        .then((res)=>{
+        
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("message").value = "";
+            console.log(res);
+            alert("your message sent succesfully");
+        })
+        .catch((err) => console.log(err));
+    })
+
+
+
+</script>
+
+</html>
